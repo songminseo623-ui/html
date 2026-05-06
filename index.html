@@ -3,161 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>(주)비에이텍 - 워터펌프 제작 및 설치 전문</title>
-    <meta name="description" content="깨끗한 물을 위한 최고의 선택. (주)비에이텍은 워터펌프 제작, 설치, 수리 전문기업입니다.">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <title>비에이텍(주) | Blue Advanced Technology</title>
+    <meta name="description" content="신뢰와 기술력을 상징하는 워터 펌프 전문 기업, 비에이텍입니다.">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+        body { font-family: 'Pretendard', sans-serif; }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 180, 216, 0.5)), url('https://images.unsplash.com/photo-1541252260730-0412e8e2108e?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .slider {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .slide-track {
+            display: inline-block;
+            animation: scroll 20s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .bg-water-gradient {
+            background: linear-gradient(135deg, #003366 0%, #0077b6 50%, #00b4d8 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .bg-water-gradient::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0; height: 30%;
+            background: linear-gradient(to top, rgba(255,255,255,0.1), transparent);
+        }
+        .water-card {
+            border-radius: 20px;
+            border-bottom-right-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .water-card:hover {
+            border-bottom-right-radius: 20px;
+            border-top-left-radius: 50px;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 180, 216, 0.25), 0 10px 10px -5px rgba(0, 180, 216, 0.1);
+            border-color: #caf0f8;
+        }
+        .text-water-gradient {
+            background: linear-gradient(to right, #0055A4, #00b4d8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .water-button {
+            background: linear-gradient(to right, #0055A4, #00b4d8);
+            transition: all 0.3s ease;
+        }
+        .water-button:hover {
+            background: linear-gradient(to right, #0077b6, #00a8cc);
+            box-shadow: 0 10px 15px -3px rgba(0, 180, 216, 0.4);
+            transform: translateY(-2px);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepblue: '#003366',
+                        techblue: '#0055A4',
+                        ocean: '#0077b6',
+                        aqua: '#00b4d8',
+                        lightaqua: '#caf0f8',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <!-- Header / Navigation -->
-    <header class="glass-header">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <i class="fa-solid fa-water"></i> BA-Tech
-            </a>
-            <nav class="nav-menu">
-                <ul>
-                    <li><a href="intro.html">기업소개</a></li>
-                    <li><a href="product.html">주요제품</a></li>
-                    <li><a href="equipment.html">장비</a></li>
-                    <li><a href="sales_history.html">업력</a></li>
-                    <li><a href="map.html">찾아오시는 길</a></li>
-                    <li><a href="inquiry.html" class="btn-contact">문의</a></li>
-                </ul>
-            </nav>
-            <div class="mobile-menu-btn">
-                <i class="fa-solid fa-bars"></i>
+<body class="bg-gray-50 flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center text-deepblue font-bold text-2xl tracking-tight">
+                        <i class="fa-solid fa-water mr-2 text-aqua"></i>비에이텍(주)
+                    </a>
+                </div>
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="intro.html" class="text-gray-700 hover:text-aqua font-medium transition">회사소개</a>
+                    <a href="product.html" class="text-gray-700 hover:text-aqua font-medium transition">주요제품 및 장비</a>
+                    <a href="sales_history.html" class="text-gray-700 hover:text-aqua font-medium transition">업력</a>
+                    <a href="map.html" class="text-gray-700 hover:text-aqua font-medium transition">찾아오시는 길</a>
+                    <a href="inquiry.html" class="water-button text-white px-6 py-2 rounded-full font-medium transition">문의하기</a>
+                </nav>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="container hero-content">
-            <div class="hero-text">
-                <span class="badge">워터펌프 전문기업</span>
-                <h1>생명의 근원, <br><span class="text-gradient">깨끗한 물</span>을 만듭니다</h1>
-                <p>(주)비에이텍은 최고의 기술력으로 워터펌프 제작, 설치, 수리까지 완벽한 솔루션을 제공합니다.</p>
-                <div class="hero-buttons">
-                    <a href="intro.html" class="btn btn-primary">회사 소개 <i class="fa-solid fa-arrow-right"></i></a>
-                    <a href="product.html" class="btn btn-secondary">제품 보기</a>
-                </div>
-            </div>
-            <div class="hero-stats glass-card">
-                <div class="stat">
-                    <h3>15+</h3>
-                    <p>Years Experience</p>
-                </div>
-                <div class="stat">
-                    <h3>100%</h3>
-                    <p>Quality Guarantee</p>
-                </div>
-                <div class="stat">
-                    <h3>24/7</h3>
-                    <p>Support</p>
-                </div>
-            </div>
+    <section class="hero-bg h-[600px] flex items-center justify-center text-center px-4 relative overflow-hidden">
+        <div class="max-w-4xl animate-fade-in-up z-10">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 drop-shadow-lg leading-tight">
+                물 그 이상의 가치,<br>
+                <span class="text-lightaqua">비에이텍</span>이 만듭니다
+            </h1>
+            <p class="text-xl text-gray-100 mb-10 drop-shadow-md">
+                첨단 기술과 신뢰를 바탕으로 최고의 펌프 솔루션을 제공합니다.
+            </p>
+            <a href="product.html" class="inline-block bg-white text-ocean font-bold text-lg px-8 py-4 rounded-full shadow-lg hover:bg-lightaqua transition transform hover:-translate-y-1">
+                제품 알아보기 <i class="fa-solid fa-arrow-right ml-2"></i>
+            </a>
         </div>
-        <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
-            <p>Scroll Down</p>
-        </div>
+        <!-- Decorative water wave SVG at bottom of hero -->
+        <svg class="absolute bottom-0 w-full h-16 text-gray-50" preserveAspectRatio="none" viewBox="0 0 1440 54" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 22L120 16.7C240 11.3 480 0.7 720 0.7C960 0.7 1200 11.3 1320 16.7L1440 22V54H1320C1200 54 960 54 720 54C480 54 240 54 120 54H0V22Z"/>
+        </svg>
     </section>
 
-    <!-- Core Services -->
-    <section class="services">
-        <div class="container">
-            <div class="section-header text-center">
-                <h2>우리의 <span class="text-gradient">핵심 역량</span></h2>
-                <p>수년간의 노하우와 최첨단 기술로 최적의 워터 솔루션을 약속드립니다.</p>
+    <!-- Quick Menu -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-water-gradient mb-4 inline-block">Quick Menu</h2>
+                <div class="w-20 h-1 bg-aqua mx-auto rounded-full mt-2"></div>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="icon-wrapper">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <a href="intro.html" class="group block p-8 bg-white water-card shadow-sm border border-gray-100 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-lightaqua to-white opacity-0 group-hover:opacity-30 transition duration-500"></div>
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-aqua text-2xl mb-6 group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">기업소개</h3>
+                    <p class="text-gray-600">비에이텍의 경영철학과 비전을 확인하세요.</p>
+                </a>
+                <!-- Card 2 -->
+                <a href="product.html" class="group block p-8 bg-white water-card shadow-sm border border-gray-100 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-lightaqua to-white opacity-0 group-hover:opacity-30 transition duration-500"></div>
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-aqua text-2xl mb-6 group-hover:scale-110 transition duration-300">
                         <i class="fa-solid fa-cogs"></i>
                     </div>
-                    <h3>워터펌프 제작</h3>
-                    <p>고객의 요구사항에 맞춘 고효율, 친환경 워터펌프를 직접 설계하고 제작합니다.</p>
-                    <a href="product.html" class="link-arrow">자세히 보기 <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card">
-                    <div class="icon-wrapper">
-                        <i class="fa-solid fa-wrench"></i>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">주요제품 및 장비</h3>
+                    <p class="text-gray-600">다양한 산업용, 농업용 펌프 솔루션을 제공합니다.</p>
+                </a>
+                <!-- Card 3 -->
+                <a href="sales_history.html" class="group block p-8 bg-white water-card shadow-sm border border-gray-100 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-lightaqua to-white opacity-0 group-hover:opacity-30 transition duration-500"></div>
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-aqua text-2xl mb-6 group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-chart-line"></i>
                     </div>
-                    <h3>전문 설치 시공</h3>
-                    <p>숙련된 전문가들이 안전하고 신속하게 펌프 시스템을 현장에 설치해 드립니다.</p>
-                    <a href="equipment.html" class="link-arrow">자세히 보기 <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card">
-                    <div class="icon-wrapper">
-                        <i class="fa-solid fa-tools"></i>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">업력 (실적)</h3>
+                    <p class="text-gray-600">성공적인 납품 및 공사 실적을 확인하세요.</p>
+                </a>
+                <!-- Card 4 -->
+                <a href="map.html" class="group block p-8 bg-white water-card shadow-sm border border-gray-100 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-lightaqua to-white opacity-0 group-hover:opacity-30 transition duration-500"></div>
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-aqua text-2xl mb-6 group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-map-location-dot"></i>
                     </div>
-                    <h3>유지보수 및 수리</h3>
-                    <p>정기적인 점검과 신속한 A/S로 장비의 수명을 연장하고 최적의 성능을 유지합니다.</p>
-                    <a href="inquiry.html" class="link-arrow">자세히 보기 <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">찾아오시는 길</h3>
+                    <p class="text-gray-600">비에이텍 본사 및 공장 위치를 안내합니다.</p>
+                </a>
+                <!-- Card 5 -->
+                <a href="inquiry.html" class="group block p-8 bg-white water-card shadow-sm border border-gray-100 relative overflow-hidden lg:col-span-2">
+                    <div class="absolute inset-0 bg-gradient-to-br from-lightaqua to-white opacity-0 group-hover:opacity-30 transition duration-500"></div>
+                    <div class="flex items-center space-x-6">
+                        <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-aqua text-2xl flex-shrink-0 group-hover:scale-110 transition duration-300">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">고객 문의</h3>
+                            <p class="text-gray-600">궁금한 점이나 견적 문의를 남겨주시면 친절하게 답변해 드립니다.</p>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Call to Action -->
-    <section class="cta text-center">
-        <div class="container">
-            <h2>프로젝트에 대해 논의하고 싶으신가요?</h2>
-            <p>비에이텍의 전문가가 최적의 솔루션을 제안해 드립니다.</p>
-            <a href="inquiry.html" class="btn btn-primary btn-lg">지금 바로 문의하기</a>
+    <!-- Trust Badges -->
+    <section class="py-12 bg-white border-t border-b border-gray-100 relative">
+        <div class="max-w-7xl mx-auto px-4 overflow-hidden">
+            <h3 class="text-center text-sm font-semibold text-aqua uppercase tracking-wider mb-8">인증 현황 및 기술력</h3>
+            <div class="slider relative w-full h-20">
+                <div class="slide-track flex items-center space-x-16">
+                    <!-- Duplicate items to create infinite loop effect -->
+                    <div class="text-xl font-bold text-gray-400 whitespace-nowrap"><i class="fa-solid fa-award mr-2 text-lightaqua"></i>ISO 9001:2015</div>
+                    <div class="text-xl font-bold text-gray-400 whitespace-nowrap"><i class="fa-solid fa-certificate mr-2 text-lightaqua"></i>Main-Biz (경영혁신형)</div>
+                    <div class="text-xl font-bold text-gray-400 whitespace-nowrap"><i class="fa-solid fa-seedling mr-2 text-lightaqua"></i>벤처기업인증</div>
+                    <div class="text-xl font-bold text-gray-400 whitespace-nowrap"><i class="fa-solid fa-check-circle mr-2 text-lightaqua"></i>직접생산확인</div>
+                    <div class="text-xl font-bold text-gray-400 whitespace-nowrap"><i class="fa-solid fa-award mr-2 text-lightaqua"></i>ISO 9001:2015</div>
+                    <div class="text-xl font-bold text-gray-400 whitespace-nowrap"><i class="fa-solid fa-certificate mr-2 text-lightaqua"></i>Main-Biz (경영혁신형)</div>
+                    <div class="text-xl font-bold text-gray-400 whitespace-nowrap"><i class="fa-solid fa-seedling mr-2 text-lightaqua"></i>벤처기업인증</div>
+                    <div class="text-xl font-bold text-gray-400 whitespace-nowrap"><i class="fa-solid fa-check-circle mr-2 text-lightaqua"></i>직접생산확인</div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <a href="index.html" class="logo">
-                    <i class="fa-solid fa-water"></i> BA-Tech
-                </a>
-                <p>깨끗한 물을 향한 끊임없는 혁신, <br>(주)비에이텍이 함께합니다.</p>
+    <footer class="bg-water-gradient text-white mt-auto py-12 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+            <div>
+                <h4 class="text-2xl font-bold mb-4 flex items-center"><i class="fa-solid fa-water mr-2"></i>비에이텍(주)</h4>
+                <p class="text-lightaqua text-sm">물 그 이상의 가치, 비에이텍이 만듭니다.</p>
             </div>
-            <div class="footer-links">
-                <h4>바로가기</h4>
-                <ul>
-                    <li><a href="intro.html">기업소개</a></li>
-                    <li><a href="product.html">주요제품</a></li>
-                    <li><a href="equipment.html">장비</a></li>
-                    <li><a href="sales_history.html">업력</a></li>
-                </ul>
+            <div class="md:col-span-2">
+                <p class="text-blue-50 text-sm mb-2"><span class="font-bold">대표이사:</span> 조세연</p>
+                <p class="text-blue-50 text-sm mb-2"><span class="font-bold">주소:</span> 강원특별자치도 춘천시 퇴계공단2길 64</p>
+                <p class="text-blue-50 text-sm mb-4"><span class="font-bold">주요 제품:</span> 모터펌프, 수중펌프, 부스터펌프 등</p>
+                <p class="text-blue-200 text-xs mt-8">© 2026 Blue Advanced Technology.co.Ltd. All Rights Reserved.</p>
             </div>
-            <div class="footer-contact">
-                <h4>Contact Us</h4>
-                <ul>
-                    <li><i class="fa-solid fa-location-dot"></i> <span>주소: 춘천시 퇴계동 1번지</span></li>
-                    <li><i class="fa-solid fa-phone"></i> <span>전화: 033-248-1111</span></li>
-                    <li><i class="fa-solid fa-fax"></i> <span>팩스: 033-248-1234</span></li>
-                    <li><i class="fa-solid fa-envelope"></i> <span>이메일: aaa@naver.com</span></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom text-center">
-            <p>&copy; 2026 (주)비에이텍. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <script>
-        // Simple script to handle sticky header
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-    </script>
 </body>
 </html>
