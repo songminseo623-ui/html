@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>찾아오시는 길 | 비에이텍(주)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+        body { font-family: 'Pretendard', sans-serif; }
+        .bg-water-gradient {
+            background: linear-gradient(135deg, #003366 0%, #0077b6 50%, #00b4d8 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .bg-water-gradient::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0; height: 30%;
+            background: linear-gradient(to top, rgba(255,255,255,0.1), transparent);
+        }
+        .water-card {
+            border-radius: 20px;
+            border-bottom-right-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .water-card:hover {
+            border-bottom-right-radius: 20px;
+            border-top-left-radius: 50px;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 180, 216, 0.25), 0 10px 10px -5px rgba(0, 180, 216, 0.1);
+            border-color: #caf0f8;
+        }
+        .text-water-gradient {
+            background: linear-gradient(to right, #0055A4, #00b4d8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .water-button {
+            background: linear-gradient(to right, #0055A4, #00b4d8);
+            transition: all 0.3s ease;
+        }
+        .water-button:hover {
+            background: linear-gradient(to right, #0077b6, #00a8cc);
+            box-shadow: 0 10px 15px -3px rgba(0, 180, 216, 0.4);
+            transform: translateY(-2px);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepblue: '#003366',
+                        techblue: '#0055A4',
+                        ocean: '#0077b6',
+                        aqua: '#00b4d8',
+                        lightaqua: '#caf0f8',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center text-deepblue font-bold text-2xl tracking-tight">
+                        <i class="fa-solid fa-water mr-2 text-aqua"></i>비에이텍(주)
+                    </a>
+                </div>
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="intro.html" class="text-gray-700 hover:text-aqua font-medium transition">회사소개</a>
+                    <a href="product.html" class="text-gray-700 hover:text-aqua font-medium transition">주요제품 및 장비</a>
+                    <a href="sales_history.html" class="text-gray-700 hover:text-aqua font-medium transition">업력</a>
+                    <a href="map.html" class="text-aqua font-bold border-b-2 border-aqua pb-1">찾아오시는 길</a>
+                    <a href="inquiry.html" class="water-button text-white px-6 py-2 rounded-full font-medium transition">문의하기</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="bg-water-gradient py-20 text-center text-white relative">
+        <div class="relative z-10">
+            <h1 class="text-4xl font-bold mb-4">찾아오시는 길</h1>
+            <p class="text-lightaqua">비에이텍 본사 및 공장 오시는 길을 안내해 드립니다.</p>
+        </div>
+        <svg class="absolute bottom-0 w-full h-12 text-gray-50" preserveAspectRatio="none" viewBox="0 0 1440 54" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 22L120 16.7C240 11.3 480 0.7 720 0.7C960 0.7 1200 11.3 1320 16.7L1440 22V54H1320C1200 54 960 54 720 54C480 54 240 54 120 54H0V22Z"/>
+        </svg>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
+        
+        <div class="bg-white p-2 rounded-[30px] shadow-lg border border-lightaqua mb-8 relative">
+            <div class="absolute -right-4 -top-4 w-12 h-12 bg-aqua rounded-full opacity-20"></div>
+            <!-- Map Container -->
+            <!-- 실제 서비스 시 카카오맵 API 키를 발급받아 아래 스크립트 src에 적용해야 합니다. -->
+            <div id="map" class="w-full h-96 rounded-[24px] bg-blue-50 flex items-center justify-center border border-lightaqua">
+                <div class="text-center">
+                    <i class="fa-solid fa-map-location-dot text-4xl text-aqua mb-2 animate-bounce"></i>
+                    <p class="text-ocean font-medium">지도를 불러오는 중입니다...</p>
+                </div>
+            </div>
+            
+            <script>
+                // 카카오맵 API 스크립트가 로드되었을 때 실행될 코드입니다.
+                window.onload = function() {
+                    if (window.kakao && window.kakao.maps) {
+                        var mapContainer = document.getElementById('map'), 
+                            mapOption = {
+                                center: new kakao.maps.LatLng(37.848039, 127.733798), 
+                                level: 3 
+                            };  
+                        var map = new kakao.maps.Map(mapContainer, mapOption); 
+                        
+                        var markerPosition  = new kakao.maps.LatLng(37.848039, 127.733798); 
+                        var marker = new kakao.maps.Marker({ position: markerPosition });
+                        marker.setMap(map);
+
+                        var iwContent = '<div style="padding:5px;font-size:14px;color:#0077b6;font-weight:bold;">비에이텍(주)<br><a href="https://map.kakao.com/link/map/비에이텍,37.848039,127.733798" style="color:#00b4d8" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/비에이텍,37.848039,127.733798" style="color:#00b4d8" target="_blank">길찾기</a></div>';
+                        var infowindow = new kakao.maps.InfoWindow({
+                            position : markerPosition, 
+                            content : iwContent 
+                        });
+                        infowindow.open(map, marker);
+                    } else {
+                        document.getElementById('map').innerHTML = '<div class="text-center"><i class="fa-solid fa-map-location-dot text-4xl text-aqua mb-3"></i><p class="text-ocean font-bold">카카오맵 연동 준비 중</p><p class="text-gray-500 text-sm mt-1">아래의 외부 지도 링크 버튼을 이용하시면 더욱 편리합니다.</p></div>';
+                    }
+                };
+            </script>
+        </div>
+
+        <div class="bg-white p-8 water-card shadow-sm border border-lightaqua flex flex-col md:flex-row gap-8 items-center justify-between">
+            <div class="relative z-10">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center"><i class="fa-solid fa-building text-aqua mr-3"></i>본사 및 공장</h3>
+                <p class="text-lg text-gray-700 mb-2"><span class="font-bold w-20 inline-block text-ocean">주소</span> 강원특별자치도 춘천시 퇴계공단2길 64</p>
+                <p class="text-lg text-gray-700 mb-2"><span class="font-bold w-20 inline-block text-ocean">대표전화</span> 033-000-0000</p>
+                <p class="text-lg text-gray-700"><span class="font-bold w-20 inline-block text-ocean">이메일</span> info@batec.co.kr</p>
+            </div>
+            
+            <div class="flex flex-col gap-3 w-full md:w-auto relative z-10">
+                <a href="https://map.naver.com/v5/search/%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EC%B6%98%EC%B2%9C%EC%8B%9C%20%ED%87%B4%EA%B3%84%EA%B3%B5%EB%8B%A82%EA%B8%B8%2064" target="_blank" class="flex items-center justify-center bg-[#03C75A] text-white px-6 py-3 rounded-[15px] font-bold hover:bg-[#02b350] transition w-full md:w-64 shadow-md hover:-translate-y-1">
+                    <i class="fa-solid fa-map mr-2"></i> 네이버 지도에서 보기
+                </a>
+                <a href="https://map.kakao.com/link/search/강원특별자치도 춘천시 퇴계공단2길 64" target="_blank" class="flex items-center justify-center bg-[#FEE500] text-[#000000] px-6 py-3 rounded-[15px] font-bold hover:bg-[#e6cf00] transition w-full md:w-64 shadow-md hover:-translate-y-1">
+                    <i class="fa-solid fa-location-arrow mr-2"></i> 카카오맵으로 길찾기
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-water-gradient text-white mt-auto py-12 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+            <div>
+                <h4 class="text-2xl font-bold mb-4 flex items-center"><i class="fa-solid fa-water mr-2"></i>비에이텍(주)</h4>
+                <p class="text-lightaqua text-sm">물 그 이상의 가치, 비에이텍이 만듭니다.</p>
+            </div>
+            <div class="md:col-span-2">
+                <p class="text-blue-50 text-sm mb-2"><span class="font-bold">대표이사:</span> 조세연</p>
+                <p class="text-blue-50 text-sm mb-2"><span class="font-bold">주소:</span> 강원특별자치도 춘천시 퇴계공단2길 64</p>
+                <p class="text-blue-50 text-sm mb-4"><span class="font-bold">주요 제품:</span> 모터펌프, 수중펌프, 부스터펌프 등</p>
+                <p class="text-blue-200 text-xs mt-8">© 2026 Blue Advanced Technology.co.Ltd. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>업력 | 비에이텍(주)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+        body { font-family: 'Pretendard', sans-serif; }
+        .bg-water-gradient {
+            background: linear-gradient(135deg, #003366 0%, #0077b6 50%, #00b4d8 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .bg-water-gradient::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0; height: 30%;
+            background: linear-gradient(to top, rgba(255,255,255,0.1), transparent);
+        }
+        .water-card {
+            border-radius: 20px;
+            border-bottom-right-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .water-card:hover {
+            border-bottom-right-radius: 20px;
+            border-top-left-radius: 50px;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 180, 216, 0.25), 0 10px 10px -5px rgba(0, 180, 216, 0.1);
+            border-color: #caf0f8;
+        }
+        .text-water-gradient {
+            background: linear-gradient(to right, #0055A4, #00b4d8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .water-button {
+            background: linear-gradient(to right, #0055A4, #00b4d8);
+            transition: all 0.3s ease;
+        }
+        .water-button:hover {
+            background: linear-gradient(to right, #0077b6, #00a8cc);
+            box-shadow: 0 10px 15px -3px rgba(0, 180, 216, 0.4);
+            transform: translateY(-2px);
+        }
+        /* Timeline styling */
+        .timeline-container {
+            position: relative;
+        }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 24px;
+            width: 4px;
+            background: linear-gradient(to bottom, #00b4d8, #003366);
+            border-radius: 4px;
+        }
+        @media (min-width: 768px) {
+            .timeline-container::before {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        .timeline-marker {
+            box-shadow: 0 0 0 4px rgba(0, 180, 216, 0.3), 0 0 0 8px rgba(0, 180, 216, 0.1);
+            transition: all 0.3s ease;
+        }
+        .relative:hover .timeline-marker {
+            box-shadow: 0 0 0 6px rgba(0, 180, 216, 0.4), 0 0 0 12px rgba(0, 180, 216, 0.2);
+            transform: translate(-50%, -2px) scale(1.1);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepblue: '#003366',
+                        techblue: '#0055A4',
+                        ocean: '#0077b6',
+                        aqua: '#00b4d8',
+                        lightaqua: '#caf0f8',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center text-deepblue font-bold text-2xl tracking-tight">
+                        <i class="fa-solid fa-water mr-2 text-aqua"></i>비에이텍(주)
+                    </a>
+                </div>
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="intro.html" class="text-gray-700 hover:text-aqua font-medium transition">회사소개</a>
+                    <a href="product.html" class="text-gray-700 hover:text-aqua font-medium transition">주요제품 및 장비</a>
+                    <a href="sales_history.html" class="text-aqua font-bold border-b-2 border-aqua pb-1">업력</a>
+                    <a href="map.html" class="text-gray-700 hover:text-aqua font-medium transition">찾아오시는 길</a>
+                    <a href="inquiry.html" class="water-button text-white px-6 py-2 rounded-full font-medium transition">문의하기</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="bg-water-gradient py-20 text-center text-white relative">
+        <div class="relative z-10">
+            <h1 class="text-4xl font-bold mb-4">업력</h1>
+            <p class="text-lightaqua">2010년부터 도도히 흘러온 비에이텍의 성공적인 발자취</p>
+        </div>
+        <svg class="absolute bottom-0 w-full h-12 text-gray-50" preserveAspectRatio="none" viewBox="0 0 1440 54" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 22L120 16.7C240 11.3 480 0.7 720 0.7C960 0.7 1200 11.3 1320 16.7L1440 22V54H1320C1200 54 960 54 720 54C480 54 240 54 120 54H0V22Z"/>
+        </svg>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
+        
+        <div class="timeline-container py-8">
+            
+            <!-- 2023 ~ Present -->
+            <div class="relative flex flex-col md:flex-row items-center mb-16 group">
+                <!-- Marker -->
+                <div class="timeline-marker absolute left-6 md:left-1/2 w-4 h-4 bg-aqua rounded-full transform -translate-x-1/2 z-10"></div>
+                
+                <!-- Content Left -->
+                <div class="md:w-1/2 w-full pl-16 md:pl-0 md:pr-16 text-left md:text-right mb-4 md:mb-0">
+                    <h3 class="text-2xl font-bold text-water-gradient inline-block">2023 - 현재</h3>
+                    <p class="text-ocean font-medium mt-1">지속적인 기술 개발 및 판로 확대</p>
+                </div>
+                
+                <!-- Content Right -->
+                <div class="md:w-1/2 w-full pl-16 md:pl-16">
+                    <div class="bg-white p-6 water-card shadow-sm border border-lightaqua relative overflow-hidden">
+                        <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-lightaqua rounded-full opacity-20"></div>
+                        <ul class="space-y-3 text-gray-700 relative z-10">
+                            <li class="flex items-start"><i class="fa-solid fa-droplet text-aqua mt-1 mr-3"></i> 춘천시 상수도시설 확충공사 펌프 납품</li>
+                            <li class="flex items-start"><i class="fa-solid fa-droplet text-aqua mt-1 mr-3"></i> 강원도 관내 주요 정수장 및 하수처리장 장비 유지보수 계약</li>
+                            <li class="flex items-start"><i class="fa-solid fa-droplet text-aqua mt-1 mr-3"></i> 벤처기업인증 갱신 및 신기술 개발 착수</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2018 ~ 2022 -->
+            <div class="relative flex flex-col md:flex-row items-center mb-16 group">
+                <!-- Marker -->
+                <div class="timeline-marker absolute left-6 md:left-1/2 w-4 h-4 bg-ocean rounded-full transform -translate-x-1/2 z-10"></div>
+                
+                <!-- Content Left (Reversed order for desktop zigzag) -->
+                <div class="md:w-1/2 w-full pl-16 md:pl-16 md:order-last">
+                    <h3 class="text-2xl font-bold text-water-gradient inline-block">2018 - 2022</h3>
+                    <p class="text-ocean font-medium mt-1">품질 인증 획득 및 대규모 프로젝트 수행</p>
+                </div>
+                
+                <!-- Content Right -->
+                <div class="md:w-1/2 w-full pl-16 md:pl-0 md:pr-16 md:text-right">
+                    <div class="bg-white p-6 water-card shadow-sm border border-lightaqua relative overflow-hidden text-left md:text-right">
+                        <div class="absolute -left-10 -bottom-10 w-32 h-32 bg-lightaqua rounded-full opacity-20"></div>
+                        <ul class="space-y-3 text-gray-700 inline-block text-left relative z-10">
+                            <li class="flex items-start"><i class="fa-solid fa-droplet text-aqua mt-1 mr-3"></i> 홍천군 농업용수 설치공사 대규모 펌프 납품</li>
+                            <li class="flex items-start"><i class="fa-solid fa-droplet text-aqua mt-1 mr-3"></i> ISO 9001:2015 품질경영시스템 인증 획득</li>
+                            <li class="flex items-start"><i class="fa-solid fa-droplet text-aqua mt-1 mr-3"></i> 경영혁신형 중소기업(Main-Biz) 지정</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2013 ~ 2017 -->
+            <div class="relative flex flex-col md:flex-row items-center mb-16 group">
+                <!-- Marker -->
+                <div class="timeline-marker absolute left-6 md:left-1/2 w-4 h-4 bg-techblue rounded-full transform -translate-x-1/2 z-10"></div>
+                
+                <!-- Content Left -->
+                <div class="md:w-1/2 w-full pl-16 md:pl-0 md:pr-16 text-left md:text-right mb-4 md:mb-0">
+                    <h3 class="text-2xl font-bold text-water-gradient inline-block">2013 - 2017</h3>
+                    <p class="text-ocean font-medium mt-1">직접생산확인 및 공공기관 조달 확대</p>
+                </div>
+                
+                <!-- Content Right -->
+                <div class="md:w-1/2 w-full pl-16 md:pl-16">
+                    <div class="bg-white p-6 water-card shadow-sm border border-lightaqua relative overflow-hidden">
+                        <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-lightaqua rounded-full opacity-20"></div>
+                        <ul class="space-y-3 text-gray-700 relative z-10">
+                            <li class="flex items-start"><i class="fa-solid fa-droplet text-aqua mt-1 mr-3"></i> 다수 펌프류 직접생산확인 증명 획득</li>
+                            <li class="flex items-start"><i class="fa-solid fa-droplet text-aqua mt-1 mr-3"></i> 조달청 나라장터 물품 등록 및 납품 개시</li>
+                            <li class="flex items-start"><i class="fa-solid fa-droplet text-aqua mt-1 mr-3"></i> 공장 등록 및 생산 라인 확충</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2010 -->
+            <div class="relative flex flex-col md:flex-row items-center group">
+                <!-- Marker -->
+                <div class="timeline-marker absolute left-6 md:left-1/2 w-5 h-5 bg-deepblue rounded-full transform -translate-x-1/2 z-10"></div>
+                
+                <!-- Content Left -->
+                <div class="md:w-1/2 w-full pl-16 md:pl-16 md:order-last">
+                    <h3 class="text-2xl font-bold text-deepblue">2010. 11. 01</h3>
+                    <p class="text-ocean font-medium mt-1">비에이텍(주) 법인 설립</p>
+                </div>
+                
+                <!-- Content Right -->
+                <div class="md:w-1/2 w-full pl-16 md:pl-0 md:pr-16 md:text-right">
+                    <div class="bg-blue-50 p-6 water-card shadow-inner border border-blue-100 text-left md:text-right relative overflow-hidden">
+                        <i class="fa-solid fa-water absolute -left-4 -bottom-4 text-6xl text-white opacity-50"></i>
+                        <p class="text-gray-700 font-medium relative z-10">물 산업의 새로운 가치 창출을 목표로 춘천시 퇴계공단에 비에이텍(주)를 설립하고 맑은 물결 같은 힘찬 첫 걸음을 내딛었습니다.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-water-gradient text-white mt-auto py-12 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+            <div>
+                <h4 class="text-2xl font-bold mb-4 flex items-center"><i class="fa-solid fa-water mr-2"></i>비에이텍(주)</h4>
+                <p class="text-lightaqua text-sm">물 그 이상의 가치, 비에이텍이 만듭니다.</p>
+            </div>
+            <div class="md:col-span-2">
+                <p class="text-blue-50 text-sm mb-2"><span class="font-bold">대표이사:</span> 조세연</p>
+                <p class="text-blue-50 text-sm mb-2"><span class="font-bold">주소:</span> 강원특별자치도 춘천시 퇴계공단2길 64</p>
+                <p class="text-blue-50 text-sm mb-4"><span class="font-bold">주요 제품:</span> 모터펌프, 수중펌프, 부스터펌프 등</p>
+                <p class="text-blue-200 text-xs mt-8">© 2026 Blue Advanced Technology.co.Ltd. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
