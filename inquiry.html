@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="(주)비에이텍 온라인 문의하기">
+  <title>문의하기 - (주)비에이텍</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+  <style>
+    .inquiry-form-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: var(--text-light);
+      padding: 3rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      border-top: 5px solid var(--primary-color);
+    }
+  </style>
+</head>
+<body style="background-color: var(--light-bg);">
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html">B-A-Tech</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="intro.html">기업소개</a></li>
+        <li><a href="product.html">주요제품</a></li>
+        <li><a href="equipment.html">장비 및 시설</a></li>
+        <li><a href="sales_history.html">업력/실적</a></li>
+        <li><a href="map.html">오시는길</a></li>
+        <li><a href="content.html">콘텐츠</a></li>
+        <li><a href="inquiry.html" style="color:var(--secondary-color);">문의하기</a></li>
+      </ul>
+      <div class="hamburger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="section fade-in">
+      <h2 class="section-title">온라인 문의하기</h2>
+      <p style="text-align: center; margin-bottom: 3rem;">제품 견적, A/S, 기타 궁금하신 사항을 남겨주시면 신속하게 답변해 드리겠습니다.</p>
+      
+      <div class="inquiry-form-container fade-in">
+        <form action="#" method="POST" onsubmit="alert('문의가 성공적으로 접수되었습니다.'); return false;">
+          <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+            <div class="form-group" style="flex: 1; min-width: 250px;">
+              <label for="name">성함 / 담당자명 <span style="color:red;">*</span></label>
+              <input type="text" id="name" name="name" required placeholder="홍길동">
+            </div>
+            <div class="form-group" style="flex: 1; min-width: 250px;">
+              <label for="company">회사명</label>
+              <input type="text" id="company" name="company" placeholder="(주)회사명">
+            </div>
+          </div>
+          
+          <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+            <div class="form-group" style="flex: 1; min-width: 250px;">
+              <label for="phone">연락처 <span style="color:red;">*</span></label>
+              <input type="tel" id="phone" name="phone" required placeholder="010-0000-0000">
+            </div>
+            <div class="form-group" style="flex: 1; min-width: 250px;">
+              <label for="email">이메일</label>
+              <input type="email" id="email" name="email" placeholder="example@email.com">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">문의 제목 <span style="color:red;">*</span></label>
+            <input type="text" id="subject" name="subject" required placeholder="견적 문의드립니다.">
+          </div>
+
+          <div class="form-group">
+            <label for="message">문의 내용 <span style="color:red;">*</span></label>
+            <textarea id="message" name="message" rows="6" required placeholder="상세한 문의 내용을 입력해주세요."></textarea>
+          </div>
+
+          <div class="form-group checkbox-group" style="margin-top: 2rem; margin-bottom: 2rem; background-color: #f9f9f9; padding: 1rem; border: 1px solid #eee; border-radius: 4px;">
+            <input type="checkbox" id="privacy" name="privacy" required>
+            <label for="privacy" style="margin-bottom: 0; font-size: 0.9rem; font-weight: normal; cursor: pointer;">
+              개인정보 수집 및 이용에 동의합니다. <span style="color:red;">(필수)</span>
+            </label>
+          </div>
+
+          <div style="text-align: center;">
+            <button type="submit" class="btn-primary" style="padding: 15px 40px; font-size: 1.1rem; border: none; cursor: pointer;">문의 접수하기</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <h3>(주)비에이텍</h3>
+        <p>물 그 이상의 가치를 만드는 기술</p>
+      </div>
+      <div class="footer-col">
+        <h3>Contact Info</h3>
+        <p>주소: 강원 춘천시 퇴계공단2길 64 (퇴계제2농공단지 내)</p>
+        <p>TEL: 033-264-9243</p>
+        <p>FAX: 033-251-5747</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 (주)비에이텍 All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
